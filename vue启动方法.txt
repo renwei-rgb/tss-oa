@@ -1,0 +1,7 @@
+首先需要下载node——16版本，
+然后找到前端文件夹，
+在前端文件夹下打开cmd命令框，
+输入npm run dev或者npm run serve启动即可，
+有的项目没有下载vue的依赖需要先npm install，
+然后再npm run dev或者npm run serve，
+如果启动失败可以找客服收费启动哦。
