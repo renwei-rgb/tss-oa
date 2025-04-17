@@ -1,0 +1,26 @@
+# -Denv=dev -Dapollo.cluster=DEFAULT -Dserver.port=53050
+app:
+  id: consumer-service
+apollo:
+  bootstrap:
+    enabled: true
+    namespaces: application,micro_service.spring-boot-druid,micro_service.spring-boot-http,micro_service.spring-eureka,micro_service.spring-ribbon,micro_service.spring-boot-redis,micro_service.mybatis-plus,micro_service.spring-rocketmq,micro_service.spring-cloud-hmily,TEST1.spring-cloud-hmily,TEST1.spring-cloud-hmaily
+
+spring:
+  application:
+    name: consumer-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/p2p_undo_log
+    username: root
+    password: rw123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+
+
+logging:
+  config: classpath:log4j2-dev.xml
+
+
+

@@ -1,0 +1,8 @@
+[${project.name}][${env:SERVER_PORT}] 2025-04-08 09:56:35,725 INFO [Eureka-EvictionTimer][AbstractInstanceRegistry.java:1250] - Running the evict task with compensationTime 54053672ms
+[${project.name}][${env:SERVER_PORT}] 2025-04-08 09:56:45,725 INFO [Eureka-EvictionTimer][AbstractInstanceRegistry.java:1250] - Running the evict task with compensationTime 0ms
+[${project.name}][${env:SERVER_PORT}] 2025-04-08 09:56:45,725 INFO [Eureka-EvictionTimer][AbstractInstanceRegistry.java:611] - Evicting 1 items (expired=1, evictionLimit=1)
+[${project.name}][${env:SERVER_PORT}] 2025-04-08 09:56:45,725 WARN [Eureka-EvictionTimer][AbstractInstanceRegistry.java:623] - DS: Registry: expired lease for GATEWAY-SERVER/DESKTOP-0TQBVUG:gateway-server:53010
+[${project.name}][${env:SERVER_PORT}] 2025-04-08 09:56:45,726 INFO [Eureka-EvictionTimer][AbstractInstanceRegistry.java:330] - Cancelled instance GATEWAY-SERVER/DESKTOP-0TQBVUG:gateway-server:53010 (replication=false)
+[${project.name}][${env:SERVER_PORT}] 2025-04-08 09:56:55,725 INFO [Eureka-EvictionTimer][AbstractInstanceRegistry.java:1250] - Running the evict task with compensationTime 0ms
+[${project.name}][${env:SERVER_PORT}] 2025-04-08 09:56:57,621 WARN [http-nio-53000-exec-2][AbstractInstanceRegistry.java:353] - DS: Registry: lease doesn't exist, registering resource: GATEWAY-SERVER - DESKTOP-0TQBVUG:gateway-server:53010
+[${project.name}][${env:SERVER_PORT}] 2025-04-08 09:56:57,626 WARN [http-nio-53000-exec-2][InstanceResource.java:116] - Not Found (Renew): GATEWAY-SERVER - DESKTOP-0TQBVUG:gateway-server:53010
