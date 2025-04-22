@@ -1,0 +1,16 @@
+创建考勤统计表
+CREATE TABLE `sys_attendance_report` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `employee_id` varchar(50) NOT NULL COMMENT '员工编号',
+  `year` int(4) NOT NULL COMMENT '年份',
+  `month` int(2) NOT NULL COMMENT '月份',
+  `total_days` int(11) NOT NULL DEFAULT '0' COMMENT '应出勤天数',
+  `actual_days` int(11) NOT NULL DEFAULT '0' COMMENT '实际出勤天数',
+  `late_days` int(11) NOT NULL DEFAULT '0' COMMENT '迟到天数',
+  `early_days` int(11) NOT NULL DEFAULT '0' COMMENT '早退天数',
+  `absent_days` int(11) NOT NULL DEFAULT '0' COMMENT '缺勤天数',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_employee_year_month` (`employee_id`,`year`,`month`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='考勤统计表'
