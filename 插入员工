@@ -1,0 +1,99 @@
+-- 第一批数据（1-20）
+INSERT INTO `sys_employee` (`employee_id`, `name`, `department`, `position`, `email`, `phone`, `status`, `role`) VALUES
+('admin001', '张三', '人事部', '人事经理', 'zhangsan@example.com', '13800138001', 1, 'admin'),
+('admin002', '李四', '技术部', '技术总监', 'lisi@example.com', '13800138002', 1, 'admin'),
+('dev001', '王五', '技术部', 'Java开发工程师', 'wangwu@example.com', '13800138003', 1, 'employee'),
+('dev002', '赵六', '技术部', '前端开发工程师', 'zhaoliu@example.com', '13800138004', 1, 'employee'),
+('dev003', '钱七', '技术部', '测试工程师', 'qianqi@example.com', '13800138005', 1, 'employee'),
+('dev004', '孙八', '技术部', '运维工程师', 'sunba@example.com', '13800138006', 1, 'employee'),
+('dev005', '周九', '技术部', 'UI设计师', 'zhoujiu@example.com', '13800138007', 1, 'employee'),
+('mkt001', '吴十', '市场部', '市场经理', 'wushi@example.com', '13800138008', 1, 'employee'),
+('mkt002', '郑十一', '市场部', '市场专员', 'zheng11@example.com', '13800138009', 1, 'employee'),
+('mkt003', '王十二', '市场部', '市场专员', 'wang12@example.com', '13800138010', 1, 'employee'),
+('mkt004', '李十三', '市场部', '市场专员', 'li13@example.com', '13800138011', 1, 'employee'),
+('mkt005', '张十四', '市场部', '市场专员', 'zhang14@example.com', '13800138012', 1, 'employee'),
+('sales001', '刘十五', '销售部', '销售经理', 'liu15@example.com', '13800138013', 1, 'employee'),
+('sales002', '陈十六', '销售部', '销售代表', 'chen16@example.com', '13800138014', 1, 'employee'),
+('sales003', '杨十七', '销售部', '销售代表', 'yang17@example.com', '13800138015', 1, 'employee'),
+('sales004', '黄十八', '销售部', '销售代表', 'huang18@example.com', '13800138016', 1, 'employee'),
+('sales005', '赵十九', '销售部', '销售代表', 'zhao19@example.com', '13800138017', 1, 'employee'),
+('fin001', '周二十', '财务部', '财务经理', 'zhou20@example.com', '13800138018', 1, 'employee'),
+('fin002', '吴二一', '财务部', '会计', 'wu21@example.com', '13800138019', 1, 'employee'),
+('fin003', '郑二二', '财务部', '出纳', 'zheng22@example.com', '13800138020', 1, 'employee');
+
+-- 第二批数据（21-40）
+INSERT INTO `sys_employee` (`employee_id`, `name`, `department`, `position`, `email`, `phone`, `status`, `role`) VALUES
+('fin004', '王二三', '财务部', '会计', 'wang23@example.com', '13800138021', 1, 'employee'),
+('fin005', '李二四', '财务部', '出纳', 'li24@example.com', '13800138022', 1, 'employee'),
+('hr001', '张二五', '人事部', '人事专员', 'zhang25@example.com', '13800138023', 1, 'employee'),
+('hr002', '刘二六', '人事部', '人事专员', 'liu26@example.com', '13800138024', 1, 'employee'),
+('hr003', '陈二七', '人事部', '人事专员', 'chen27@example.com', '13800138025', 1, 'employee'),
+('hr004', '杨二八', '人事部', '人事专员', 'yang28@example.com', '13800138026', 1, 'employee'),
+('hr005', '黄二九', '人事部', '人事专员', 'huang29@example.com', '13800138027', 1, 'employee'),
+('other001', '赵三十', '行政部', '行政专员', 'zhao30@example.com', '13800138028', 1, 'employee'),
+('other002', '周三一', '行政部', '行政专员', 'zhou31@example.com', '13800138029', 1, 'employee'),
+('other003', '吴三二', '行政部', '行政专员', 'wu32@example.com', '13800138030', 1, 'employee'),
+('other004', '郑三三', '行政部', '行政专员', 'zheng33@example.com', '13800138031', 1, 'employee'),
+('other005', '王三四', '行政部', '行政专员', 'wang34@example.com', '13800138032', 1, 'employee'),
+('dev006', '李三五', '技术部', 'Java开发工程师', 'li35@example.com', '13800138033', 1, 'employee'),
+('dev007', '张三六', '技术部', '前端开发工程师', 'zhang36@example.com', '13800138034', 1, 'employee'),
+('dev008', '刘三七', '技术部', '测试工程师', 'liu37@example.com', '13800138035', 1, 'employee'),
+('dev009', '陈三八', '技术部', '运维工程师', 'chen38@example.com', '13800138036', 1, 'employee'),
+('dev010', '杨三九', '技术部', 'UI设计师', 'yang39@example.com', '13800138037', 1, 'employee'),
+('mkt006', '黄四十', '市场部', '市场专员', 'huang40@example.com', '13800138038', 1, 'employee'),
+('mkt007', '赵四一', '市场部', '市场专员', 'zhao41@example.com', '13800138039', 1, 'employee'),
+('mkt008', '周四二', '市场部', '市场专员', 'zhou42@example.com', '13800138040', 1, 'employee');
+
+-- 第三批数据（41-60）
+INSERT INTO `sys_employee` (`employee_id`, `name`, `department`, `position`, `email`, `phone`, `status`, `role`) VALUES
+('mkt009', '吴四三', '市场部', '市场专员', 'wu43@example.com', '13800138041', 1, 'employee'),
+('mkt010', '郑四四', '市场部', '市场专员', 'zheng44@example.com', '13800138042', 1, 'employee'),
+('sales006', '王四五', '销售部', '销售代表', 'wang45@example.com', '13800138043', 1, 'employee'),
+('sales007', '李四六', '销售部', '销售代表', 'li46@example.com', '13800138044', 1, 'employee'),
+('sales008', '张四七', '销售部', '销售代表', 'zhang47@example.com', '13800138045', 1, 'employee'),
+('sales009', '刘四八', '销售部', '销售代表', 'liu48@example.com', '13800138046', 1, 'employee'),
+('sales010', '陈四九', '销售部', '销售代表', 'chen49@example.com', '13800138047', 1, 'employee'),
+('fin006', '杨五十', '财务部', '会计', 'yang50@example.com', '13800138048', 1, 'employee'),
+('fin007', '黄五一', '财务部', '出纳', 'huang51@example.com', '13800138049', 1, 'employee'),
+('fin008', '赵五二', '财务部', '会计', 'zhao52@example.com', '13800138050', 1, 'employee'),
+('fin009', '周五三', '财务部', '出纳', 'zhou53@example.com', '13800138051', 1, 'employee'),
+('fin010', '吴五四', '财务部', '会计', 'wu54@example.com', '13800138052', 1, 'employee'),
+('hr006', '郑五五', '人事部', '人事专员', 'zheng55@example.com', '13800138053', 1, 'employee'),
+('hr007', '王五六', '人事部', '人事专员', 'wang56@example.com', '13800138054', 1, 'employee'),
+('hr008', '李五七', '人事部', '人事专员', 'li57@example.com', '13800138055', 1, 'employee'),
+('hr009', '张五八', '人事部', '人事专员', 'zhang58@example.com', '13800138056', 1, 'employee'),
+('hr010', '刘五九', '人事部', '人事专员', 'liu59@example.com', '13800138057', 1, 'employee'),
+('other006', '陈六十', '行政部', '行政专员', 'chen60@example.com', '13800138058', 1, 'employee'),
+('other007', '杨六一', '行政部', '行政专员', 'yang61@example.com', '13800138059', 1, 'employee'),
+('other008', '黄六二', '行政部', '行政专员', 'huang62@example.com', '13800138060', 1, 'employee');
+
+-- 第四批数据（61-80）
+INSERT INTO `sys_employee` (`employee_id`, `name`, `department`, `position`, `email`, `phone`, `status`, `role`) VALUES
+('other009', '赵六三', '行政部', '行政专员', 'zhao63@example.com', '13800138061', 1, 'employee'),
+('other010', '周六四', '行政部', '行政专员', 'zhou64@example.com', '13800138062', 1, 'employee'),
+('dev011', '吴六五', '技术部', 'Java开发工程师', 'wu65@example.com', '13800138063', 1, 'employee'),
+('dev012', '郑六六', '技术部', '前端开发工程师', 'zheng66@example.com', '13800138064', 1, 'employee'),
+('dev013', '王六七', '技术部', '测试工程师', 'wang67@example.com', '13800138065', 1, 'employee'),
+('dev014', '李六八', '技术部', '运维工程师', 'li68@example.com', '13800138066', 1, 'employee'),
+('dev015', '张六九', '技术部', 'UI设计师', 'zhang69@example.com', '13800138067', 1, 'employee'),
+('mkt011', '刘七十', '市场部', '市场专员', 'liu70@example.com', '13800138068', 1, 'employee'),
+('mkt012', '陈七一', '市场部', '市场专员', 'chen71@example.com', '13800138069', 1, 'employee'),
+('mkt013', '杨七二', '市场部', '市场专员', 'yang72@example.com', '13800138070', 1, 'employee'),
+('mkt014', '黄七三', '市场部', '市场专员', 'huang73@example.com', '13800138071', 1, 'employee'),
+('mkt015', '赵七四', '市场部', '市场专员', 'zhao74@example.com', '13800138072', 1, 'employee'),
+('sales011', '周七五', '销售部', '销售代表', 'zhou75@example.com', '13800138073', 1, 'employee'),
+('sales012', '吴七六', '销售部', '销售代表', 'wu76@example.com', '13800138074', 1, 'employee'),
+('sales013', '郑七七', '销售部', '销售代表', 'zheng77@example.com', '13800138075', 1, 'employee'),
+('sales014', '王七八', '销售部', '销售代表', 'wang78@example.com', '13800138076', 1, 'employee'),
+('sales015', '李七九', '销售部', '销售代表', 'li79@example.com', '13800138077', 1, 'employee'),
+('fin011', '张八十', '财务部', '会计', 'zhang80@example.com', '13800138078', 1, 'employee'),
+('fin012', '刘八一', '财务部', '出纳', 'liu81@example.com', '13800138079', 1, 'employee'),
+('fin013', '陈八二', '财务部', '会计', 'chen82@example.com', '13800138080', 1, 'employee');
+
+-- 第五批数据（81-100）
+INSERT INTO `sys_employee` (`employee_id`, `name`, `department`, `position`, `email`, `phone`, `status`, `role`) VALUES
+('fin014', '杨八三', '财务部', '出纳', 'yang83@example.com', '13800138081', 1, 'employee'),
+('fin015', '黄八四', '财务部', '会计', 'huang84@example.com', '13800138082', 1, 'employee'),
+('hr011', '赵八五', '人事部', '人事专员', 'zhao85@example.com', '13800138083', 1, 'employee'),
+('hr012', '周八六', '人事部', '人事专员', 'zhou86@example.com', '13800138084', 1, 'employee'),
+('hr013', '吴八七', '人事部', '人事专员', 'wu87@example.com', '1380013808
