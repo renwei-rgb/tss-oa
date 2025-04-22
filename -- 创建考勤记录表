@@ -1,0 +1,14 @@
+-- 创建考勤记录表
+CREATE TABLE `sys_attendance` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `employee_id` varchar(50) NOT NULL COMMENT '员工编号',
+  `check_in_time` datetime DEFAULT NULL COMMENT '签到时间',
+  `check_out_time` datetime DEFAULT NULL COMMENT '签退时间',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0-未完成，1-已完成',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_employee_id` (`employee_id`),
+  KEY `idx_check_in_time` (`check_in_time`),
+  KEY `idx_check_out_time` (`check_out_time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='考勤记录表';
