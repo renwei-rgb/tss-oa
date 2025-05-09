@@ -1,0 +1,64 @@
+package com.example.core.controller;
+
+import com.example.core.model.request.DocumentRequest;
+import com.example.core.enums.DocumentStatus;
+import com.example.core.enums.DocumentType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import java.time.LocalDateTime;
+
+@RestController
+@RequestMapping("/api/tax-documents")
+public class TaxDocumentController {
+
+    @Autowired
+    private ITaxDocumentService taxDocumentService;
+
+    @GetMapping
+    public ResponseEntity<?> getAllDocuments() {
+        return ResponseEntity.ok(taxDocumentService.list());
+    }
+
+    @GetMapping("/{documentNo}")
+    public ResponseEntity<?> getByDocumentNo(@PathVariable String documentNo) {
+        try {
+            TaxDocument document = taxDocumentService.getByDocumentNo(documentNo);
+            if (document == null) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok(document);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("查询文档失败：" + e.getMessage());
+        }
+    }
+
+    @GetMapping("/taxpayer/{taxpayerId}")
+    public ResponseEntity<?> getByTaxpayerId(@PathVariable String taxpayerId) {
+        return ResponseEntity.ok(taxDocumentService.getByTaxpayerId(taxpayerId));
+    }
+
+    @PostMapping
+    public ResponseEntity<?> createDocument(@Validated @RequestBody DocumentRequest request) {
+        TaxDocument document = new TaxDocument();
+        document.setDocumentId(request.getDocumentId());
+        document.setDocumentType(DocumentType.valueOf(request.getDocumentType()));
+        document.setStatus(DocumentStatus.PENDING);
+        document.setCreationDate(LocalDateTime.now());
+        
+        // 添加空值检查，如果 content 为空则使用默认值 1001
+        String content = request.getContent();
+        document.setAccountId(content != null && !content.trim().isEmpty() ? 
+            Long.parseLong(content) : 1001L);
+            
+        return ResponseEntity.ok(taxDocumentService.createDocument(document));
+    }
+
+    @PutMapping("/{documentNo}/status")
+    public ResponseEntity<?> updateStatus(
+            @PathVariable String documentNo,
+            @RequestParam DocumentStatus status) {
+        return ResponseEntity.ok(taxDocumentService.updateStatus(documentNo, status));
+    }
+} 
