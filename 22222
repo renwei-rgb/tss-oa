@@ -5,3 +5,126 @@ db.num=1
 db.url.0=jdbc:mysql://mall4cloud-mysql:3306/mall4cloud_nacos?characterEncoding=utf8&connectTimeout=10000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
 db.user.0=root
 db.password.0=rw123 
+
+Ctrl+K to generate a command
+当然yongdocker
+
+明白了，既然我们使用的是 Docker，那么应该使用 Docker 的网络配置。让我们修改一下配置：
+首先，让我们检查一下 Docker 网络：
+我看到了问题所在。在 Docker Compose 文件中，我们使用了 network_mode: "host"，这实际上绕过了 Docker 的网络管理。我们应该使用 Docker 的默认网络或创建一个自定义网络。
+让我们修改 Docker Compose 文件：
+现在让我们修改 Nacos 的配置文件，使用容器名称作为主机名：
+现在让我们重新启动所有服务：
+抱歉，在 Windows PowerShell 中需要使用分号而不是 &&。让我们分两步执行：
+Great! All services have been successfully started using Docker Compose. Let's wait a few seconds for the services to fully initialize and then check the Nacos logs to see if the database connection is working properly.
+The Nacos container has started successfully, and it's now running in standalone mode. The logs show that it's initializing properly. Let's wait a bit longer to see if there are any database connection issues. I'll check the logs again after a few more seconds.
+I see the issue now. The error is related to MySQL's authentication method. The specific error is:
+Apply to docker-compo...
+This is a security feature in MySQL 8.0 that requires explicit permission to retrieve the public key. We need to modify the database connection URL to allow public key retrieval. Let me update the Nacos configuration file.
+Now let's restart the Nacos container to apply the new configuration:
+Let's wait a few seconds and then check the Nacos logs to see if the database connection issue is resolved:
+Nacos 还是报 “Public Key Retrieval is not allowed” 的错误，说明配置虽然已经加了 allowPublicKeyRetrieval=true，但日志显示依然无法连接数据库。
+请确认以下几点：
+配置文件已保存且生效
+请确保 doc/中间件docker-compse一键安装/nacos/conf/application.properties 文件内容如下（注意参数顺序和拼写）：
+Apply to docker-compo...
+MySQL 用户认证插件
+你的 MySQL root 用户如果是用 caching_sha2_password 插件（MySQL 8 默认），Nacos 连接时会遇到公钥检索问题。建议将 root 用户的认证插件改为 mysql_native_password。
+你可以进入 MySQL 容器后执行：
+Apply to docker-compo...
+重启 Nacos 容器
+修改完毕后，重启 Nacos 容器。
+如需我帮你执行第2步，请回复“执行 root 认证插件修改”。
+如果你已完成上述操作，请再次查看 Nacos 日志，确认是否还有数据库连接报错。
+
+    ->
+    -> ^C
+mysql> ^C
+mysql> ^C
+mysql>
+PS C:\Users\86153> docker exec -it mall4cloud-mysql bash
+bash-5.1#  docker exec -it mall4cloud-mysql mysql -uroot -p80jpnH4.r5g
+bash: docker: command not found
+bash-5.1#  docker exec -it mall4cloud-mysql mysql -uroot -prw123
+bash: docker: command not found
+bash-5.1#
+
+你已经进入了 MySQL 容器的 bash 命令行（bash-5.1#），此时不需要再用 docker exec，直接运行 mysql 命令即可。
+请直接输入下面的命令来登录 MySQL（注意不要加 docker exec）：
+Apply to docker-compo...
+如果登录成功，执行下面的 SQL 语句切换认证插件：
+Apply to docker-compo...
+操作步骤总结：
+进入容器后，直接输入 mysql -uroot -prw123 登录。
+登录后，执行上面的 ALTER USER 语句。
+完成后，输入 exit 退出 MySQL，再输入 exit 退出容器。
+完成后请重启 Nacos 容器，并查看日志确认是否启动成功。如果需要我帮你重启 Nacos 或查看日志，请回复“重启 Nacos”或“查看日志”。
+
+mysql> ^C
+mysql> ^C
+mysql>
+PS C:\Users\86153> docker exec -it mall4cloud-mysql bash
+bash-5.1#  docker exec -it mall4cloud-mysql mysql -uroot -p80jpnH4.r5g
+bash: docker: command not found
+bash-5.1#  docker exec -it mall4cloud-mysql mysql -uroot -prw123
+bash: docker: command not found
+bash-5.1# mysql -uroot -prw123
+mysql: [Warning] World-writable config file '/etc/mysql/conf.d/docker.cnf' is ignored.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 338
+Server version: 8.0.42 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'rw123';
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+
+你已经成功将 root 用户的认证插件切换为 mysql_native_password，并刷新了权限！
+现在请按以下步骤操作：
+退出 MySQL 命令行：输入
+Apply to docker-compo...
+退出容器 shell：再输入
+Apply to docker-compo...
+重启 Nacos 容器，让新配置生效。
+我可以帮你自动重启 Nacos 并查看日志，确认数据库连接是否恢复。
+请回复“重启 Nacos”或“查看日志”，或者直接告诉我你想做什么！
+重启
+
+Nacos 容器已成功重启。请稍等 10 秒左右，接下来我将帮你查看 Nacos 日志，确认数据库连接是否已经恢复并且服务是否正常启动。
+请回复“查看日志”继续，或者你也可以自行访问 http://localhost:8848/nacos 试试能否打开控制台。
+好了
+
+可以了
+
+从日志中可以看到，Nacos 服务已经成功启动，并且没有出现数据库连接错误。以下是关键信息：
+Nacos 版本为 2.3.2，运行在独立模式下，端口为 8848。
+控制台 URL 为 http://8aabf5dc754c:8848/nacos/index.html。
+服务成功启动，并且没有出现任何错误。
+这表明 Nacos 已经成功连接到数据库，并且可以正常提供服务。如果你有其他问题或需要进一步的帮助，请告诉我！
+ssh 192.168.137.2
+
+连接到 192.168.137.2 的 SSH 请求超时，可能是因为目标服务器未运行 SSH 服务、网络问题或防火墙设置阻止了连接。请检查以下几点：
+确认服务器是否在线：确保目标服务器已启动并且网络连接正常。
+检查 SSH 服务：确保目标服务器上运行了 SSH 服务（通常监听在 22 端口）。
+防火墙设置：检查目标服务器的防火墙设置，确保允许 SSH 连接。
+网络连接：确保你的网络可以访问目标服务器的 IP 地址。
+如果你需要进一步的帮助，请告诉我！
+ping 
+
+Ping 测试显示与 192.168.137.2 的网络连接部分成功，但有 25% 的数据包丢失。以下是详细信息：
+发送的数据包：4 个
+接收的数据包：3 个
+丢失的数据包：1 个（25% 的丢失率）
+往返时间：最小为 0ms，
