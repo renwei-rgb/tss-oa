@@ -126,5 +126,5 @@ ping
 Ping 测试显示与 192.168.137.2 的网络连接部分成功，但有 25% 的数据包丢失。以下是详细信息：
 发送的数据包：4 个
 接收的数据包：3 个
-丢失的数据包：1 个（25% 的丢失率）
+丢失的数据包：1 个（25% 的丢失率）   NACOS_CORE_AUTH_PLUGIN_NACOS_TOKEN_SECRET_KEY=TWFsbDRqTWFsbDRjbG91ZE1hbGw0ak1hbGw0Y2xvdWRNYWxsNGpNYWxsNGNsb3Vk
 往返时间：最小为 0ms，
