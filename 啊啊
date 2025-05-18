@@ -1,2 +1,7 @@
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'rw123';
 FLUSH PRIVILEGES;
+spring.datasource.platform=mysql
+db.num=1
+db.url.0=jdbc:mysql://mall4cloud-mysql:3306/mall4cloud_nacos?characterEncoding=utf8&connectTimeout=10000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+db.user.0=root
+db.password.0=rw123 
